@@ -200,7 +200,7 @@ def plot_results(x_data, y_data, x_label, y_label, title, filename, is_log=False
     plt.figure(figsize=(10, 6))
 
     if is_log:
-        plt.semilogx(x_data, y_data, 'r-o', linewidth=2, markersize=4, label='Rversible Potential')
+        plt.semilogx(x_data, y_data, 'r-o', linewidth=2, markersize=4, label='Reversible Potential')
     else:
         plt.plot(x_data, y_data, 'b-o', linewidth=2, markersize=4, label='Reversible Potential')
     
