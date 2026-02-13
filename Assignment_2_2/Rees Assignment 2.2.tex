@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+
+% --- Essential Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb} % For thermodynamic equations
+\usepackage{graphicx}         % For including your Python plots
+\usepackage{booktabs}        % For elegant tables
+\usepackage{caption}
+\usepackage{subcaption}      % To put plots side-by-side
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% --- Document Information ---
+\title{ME Grad Assignment 2.2: H2-O2 Fuel Cell Thermodynamics}
+\author{Ben Rees}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\hspace{5mm}This report analyzes the reversible potential of a hydrogen-oxygen fuel cell using variable specific heat models 
+(NIST Shomate Equations)\cite{nist} and a constant $C_p$ model for lower temperature regimes.
+
+\section{Thermodynamic Results}
+
+\subsection{Potential vs. Temperature}
+\hspace{5mm}Figure \ref{fig:q1_plot} shows the reversible potential $E_{rev}$ as a function of temperature. We observe a decrease in potential
+ as temperature increases due to the negative entropy of the reaction $\Delta S_{rxn}$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Q1_Potential_vs_T.png}
+    \caption{Reversible potential from 25$^\circ$C to 800$^\circ$C at $P=1$ atm.}
+    \label{fig:q1_plot}
+\end{figure}
+
+\subsection{Potential vs. Pressure}
+\hspace{5mm}As shown in Figure \ref{fig:q2_plot}, the potential increases logarithmically with pressure, consistent with the Nernst relationship.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Q2_Potential_vs_P.png}
+    \caption{Reversible potential from 0.1 to 100 atm at $T=650$ K.}
+    \label{fig:q2_plot}
+\end{figure}
+
+\section{Mathematical Implementation}
+\hspace{5mm}The potential was calculated using the Gibbs Free Energy relationship:
+\begin{equation}
+    E_{rev} = -\frac{\Delta G_{rxn}}{nF} = -\frac{\Delta H - T\Delta S}{nF}.
+\end{equation}
+\hspace{5mm}The pressure dependence was incorporated using the Nernst equation:
+\begin{equation}
+    E_{rev}(P) = E_{rev}^0 - \frac{RT}{nF} \ln\left(\frac{P_{H_2} P_{O_2}^{1/2}}{P_{H_2O}}\right).
+\end{equation}
+
+\section{Conclusion}
+\hspace{5mm}The thermodynamic model successfully captures the voltage drop at higher temperatures and the logarithmic gains with pressure. 
+
+\section{Code Availability}
+\hspace{5mm} All Python scripts, thermodynamic coefficients, and diagnostic tools used for this analysis are 
+available on GitHub at: \url{https://github.com/Ben-JaminRees/Fuel-Cell-Course-Spring-2026}.
+
+% --- The Bibliography Section ---
+\begin{thebibliography}{1}
+
+\bibitem{nist}
+P. J. Linstrom and W. G. Mallard, Eds., \textit{NIST Chemistry WebBook, NIST Standard Reference Database Number 69}. Gaithersburg, MD: National Institute of Standards and Technology. [Online]. Available: https://webbook.nist.gov
+
+\end{thebibliography}
+
+\end{document}

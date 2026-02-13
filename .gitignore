@@ -1,0 +1,19 @@
+# LaTeX auxiliary files
+*.aux
+*.log
+*.gz
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+
+# Python clutter
+__pycache__/
+*.pyc
+
+# Operating system files
+.DS_Store
+
+# Personal HW files
+Rees Fuel Cell Assignment 1.pdf
+Rees Fuel Cell Assignment 2.1.pdf
